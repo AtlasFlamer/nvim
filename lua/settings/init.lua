@@ -3,6 +3,8 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 vim.opt.undofile = true
+-- Separate words by underscore
+vim.opt.iskeyword:remove {"_"}
 
 -- Easier Escape
 vim.api.nvim_set_keymap('i', 'jk', '<esc>', {} )
@@ -23,3 +25,9 @@ vim.api.nvim_set_keymap('v', '<leader>p', '"+p', {} )
 vim.api.nvim_set_keymap('v', '<leader>P', '"+P_', {} )
 vim.api.nvim_set_keymap('n', '<leader>p', '"+p', {} )
 vim.api.nvim_set_keymap('n', '<leader>P', '"+P', {} )
+
+-- Toggle Markdown Preview
+vim.api.nvim_set_keymap('n', '<leader>mp', '<Plug>MarkdownPreviewToggle', {} )
+vim.api.nvim_set_keymap('i', '<leader>mp', '<Plug>MarkdownPreviewToggle', {} )
+
+
