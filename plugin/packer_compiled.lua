@@ -95,6 +95,10 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/home/krr/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim"
   },
+  nerdtree = {
+    loaded = true,
+    path = "/home/krr/.local/share/nvim/site/pack/packer/start/nerdtree"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/krr/.local/share/nvim/site/pack/packer/start/nvim-autopairs"

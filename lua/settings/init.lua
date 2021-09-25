@@ -28,6 +28,6 @@ vim.api.nvim_set_keymap('n', '<leader>P', '"+P', {} )
 
 -- Toggle Markdown Preview
 vim.api.nvim_set_keymap('n', '<leader>mp', '<Plug>MarkdownPreviewToggle', {} )
-vim.api.nvim_set_keymap('i', '<leader>mp', '<Plug>MarkdownPreviewToggle', {} )
 
-
+-- Nerd Tree
+vim.api.nvim_set_keymap('n', '<leader>n', ':NERDTreeFocus<CR>', {} )

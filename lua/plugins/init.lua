@@ -8,6 +8,8 @@ packer.startup(function()
 	use {'wbthomason/packer.nvim'}
 	use {'kyazdani42/nvim-web-devicons', cond = nightly}
 	use 'lewis6991/gitsigns.nvim'
+	use 'ryanoasis/vim-devicons'
+	use 'preservim/nerdtree'
 	use {
 		'famiu/feline.nvim',
 		after = {

@@ -29,3 +29,5 @@ packadd LuaSnip
 packadd cmp_luasnip
 lua require'settings.nvim_cmp'
 
+lua require('settings.markdown-preview')
+
