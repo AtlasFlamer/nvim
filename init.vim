@@ -1,3 +1,4 @@
+lua require'settings.nvim_cmp'
 lua require ('settings')
 
 so ~/.config/nvim/viml/colorscheme_config.vim
@@ -6,6 +7,7 @@ lua require('plugins')
 packadd feline.nvim
 lua require ('plugins.bar')
 
+filetype plugin on
 
 augroup packer_user_config
   autocmd!
@@ -27,7 +29,7 @@ lua vim.o.completeopt = 'menuone,noselect'
 packadd nvim-cmp
 packadd LuaSnip
 packadd cmp_luasnip
-lua require'settings.nvim_cmp'
+
 
 lua require('settings.markdown-preview')
 

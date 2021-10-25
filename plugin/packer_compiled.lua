@@ -86,9 +86,29 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/home/krr/.local/share/nvim/site/pack/packer/opt/feline.nvim"
   },
+  firenvim = {
+    loaded = true,
+    path = "/home/krr/.local/share/nvim/site/pack/packer/start/firenvim"
+  },
+  fzf = {
+    loaded = true,
+    path = "/home/krr/.local/share/nvim/site/pack/packer/start/fzf"
+  },
+  ["fzf.vim"] = {
+    loaded = true,
+    path = "/home/krr/.local/share/nvim/site/pack/packer/start/fzf.vim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/krr/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+  },
+  ["iris.vim"] = {
+    loaded = true,
+    path = "/home/krr/.local/share/nvim/site/pack/packer/start/iris.vim"
+  },
+  ["jupyter_ascending.vim"] = {
+    loaded = true,
+    path = "/home/krr/.local/share/nvim/site/pack/packer/start/jupyter_ascending.vim"
   },
   ["markdown-preview.nvim"] = {
     loaded = false,
@@ -130,6 +150,10 @@ _G.packer_plugins = {
   ["uwu.vim"] = {
     loaded = true,
     path = "/home/krr/.local/share/nvim/site/pack/packer/start/uwu.vim"
+  },
+  ["vim-devicons"] = {
+    loaded = true,
+    path = "/home/krr/.local/share/nvim/site/pack/packer/start/vim-devicons"
   },
   ["vim-markdown"] = {
     config = { "\27LJ\1\2Ú\1\0\0\2\0\a\0\0214\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0'\1\1\0:\1\3\0004\0\0\0007\0\1\0'\1\1\0:\1\4\0004\0\0\0007\0\1\0'\1\1\0:\1\5\0004\0\0\0007\0\1\0'\1\1\0:\1\6\0G\0\1\0\29vim_markdown_toc_autofit\31vim_markdown_strikethrough\22vim_markdown_math\25vim_markdown_conceal\"vim_markdown_folding_disabled\6g\bvim\0" },

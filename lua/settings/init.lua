@@ -2,7 +2,9 @@
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
+
 vim.opt.undofile = true
+
 -- Separate words by underscore
 vim.opt.iskeyword:remove {"_"}
 
@@ -31,3 +33,5 @@ vim.api.nvim_set_keymap('n', '<leader>mp', '<Plug>MarkdownPreviewToggle', {} )
 
 -- Nerd Tree
 vim.api.nvim_set_keymap('n', '<leader>n', ':NERDTreeFocus<CR>', {} )
+
+vim.api.nvim_set_keymap('n', '<leader><leader><CR>', '<Plug>JupyterExecute', {})

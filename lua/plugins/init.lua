@@ -5,7 +5,20 @@ local util = require('packer.util')
 
 packer.startup(function()
 
+	use 'untitled-ai/jupyter_ascending.vim'
+	use 'soywod/iris.vim'
 	use {'wbthomason/packer.nvim'}
+	use {
+		'glacambre/firenvim',
+			run = function() vim.fn['firenvim#install'](0) end
+
+	}
+	use {
+		'junegunn/fzf'
+	}
+	use {
+		'junegunn/fzf.vim'
+	}
 	use {'kyazdani42/nvim-web-devicons', cond = nightly}
 	use 'lewis6991/gitsigns.nvim'
 	use 'ryanoasis/vim-devicons'
