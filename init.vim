@@ -23,6 +23,7 @@ lua require'colorizer'.setup()
 
 packadd nvim-lspconfig
 lua require'lspconfig'.ccls.setup{}
+lua require'lspconfig'.pyright.setup{}
 lua vim.o.completeopt = 'menuone,noselect'
 
 " nvim-cmp set-up

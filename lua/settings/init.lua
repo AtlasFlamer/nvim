@@ -28,6 +28,10 @@ vim.api.nvim_set_keymap('v', '<leader>P', '"+P_', {} )
 vim.api.nvim_set_keymap('n', '<leader>p', '"+p', {} )
 vim.api.nvim_set_keymap('n', '<leader>P', '"+P', {} )
 
+-- Save 
+vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', {} )
+
+
 -- Toggle Markdown Preview
 vim.api.nvim_set_keymap('n', '<leader>mp', '<Plug>MarkdownPreviewToggle', {} )
 
