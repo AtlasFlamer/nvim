@@ -4,7 +4,6 @@ lua require ('settings')
 so ~/.config/nvim/viml/colorscheme_config.vim
 lua require('plugins')
 
-packadd feline.nvim
 lua require ('plugins.bar')
 
 filetype plugin on
