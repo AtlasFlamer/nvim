@@ -34,3 +34,5 @@ packadd cmp_luasnip
 
 lua require('settings.markdown-preview')
 
+lua require('settings.neoscroll')
+

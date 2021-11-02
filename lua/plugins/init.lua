@@ -4,7 +4,7 @@ local packer = require('packer')
 local util = require('packer.util')
 
 packer.startup(function()
-	use 'karb93/neoscroll.nvim'
+	use 'karb94/neoscroll.nvim'
 	use 'untitled-ai/jupyter_ascending.vim'
 	use 'soywod/iris.vim'
 	use {'wbthomason/packer.nvim'}

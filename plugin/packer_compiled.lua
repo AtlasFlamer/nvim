@@ -113,7 +113,12 @@ _G.packer_plugins = {
   ["markdown-preview.nvim"] = {
     loaded = false,
     needs_bufread = false,
+    only_cond = false,
     path = "/home/krr/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim"
+  },
+  ["neoscroll.nvim"] = {
+    loaded = true,
+    path = "/home/krr/.local/share/nvim/site/pack/packer/start/neoscroll.nvim"
   },
   nerdtree = {
     loaded = true,
@@ -159,6 +164,7 @@ _G.packer_plugins = {
     config = { "\27LJ\1\2Ú\1\0\0\2\0\a\0\0214\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0'\1\1\0:\1\3\0004\0\0\0007\0\1\0'\1\1\0:\1\4\0004\0\0\0007\0\1\0'\1\1\0:\1\5\0004\0\0\0007\0\1\0'\1\1\0:\1\6\0G\0\1\0\29vim_markdown_toc_autofit\31vim_markdown_strikethrough\22vim_markdown_math\25vim_markdown_conceal\"vim_markdown_folding_disabled\6g\bvim\0" },
     loaded = false,
     needs_bufread = true,
+    only_cond = false,
     path = "/home/krr/.local/share/nvim/site/pack/packer/opt/vim-markdown"
   }
 }
