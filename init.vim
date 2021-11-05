@@ -1,4 +1,3 @@
-lua require'settings.nvim_cmp'
 lua require ('settings')
 
 so ~/.config/nvim/viml/colorscheme_config.vim
@@ -24,11 +23,13 @@ packadd nvim-lspconfig
 lua require'lspconfig'.ccls.setup{}
 lua require'lspconfig'.pyright.setup{}
 lua vim.o.completeopt = 'menuone,noselect'
+lua require('settings.lspconfig')
 
 " nvim-cmp set-up
 packadd nvim-cmp
 packadd LuaSnip
 packadd cmp_luasnip
+lua require('settings.nvim_cmp')
 
 
 lua require('settings.markdown-preview')
