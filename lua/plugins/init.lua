@@ -4,7 +4,11 @@ local packer = require('packer')
 local util = require('packer.util')
 
 packer.startup(function()
-	use 'tikhomirov/vim-glsl'
+	use {
+		'tikhomirov/vim-glsl',
+		opt = true,
+		ft = 'glsl'
+	}
 	use 'karb94/neoscroll.nvim'
 	use 'untitled-ai/jupyter_ascending.vim'
 	use 'soywod/iris.vim'
