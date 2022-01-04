@@ -5,6 +5,12 @@ vim.opt.expandtab = false
 
 vim.opt.undofile = true
 
+-- switch between windows easily
+vim.api.nvim_set_keymap('n', "<A-j>", ':wincmd j <CR>', {} )
+vim.api.nvim_set_keymap('n', "<A-k>", ':wincmd k <CR>', {} )
+vim.api.nvim_set_keymap('n', "<A-h>", ':wincmd h <CR>', {} )
+vim.api.nvim_set_keymap('n', "<A-l>", ':wincmd l <CR>', {} )
+
 -- Separate words by underscore
 vim.opt.iskeyword:remove {"_"}
 
