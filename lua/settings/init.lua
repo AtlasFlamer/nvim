@@ -1,9 +1,11 @@
 -- Smaller Tab
-vim.opt.tabstop = 4
+vim.opt.tabstop = 8
+vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = false
+vim.opt.expandtab = true
 
 vim.opt.undofile = true
+
 
 -- switch between windows easily
 vim.api.nvim_set_keymap('n', "<A-j>", ':wincmd j <CR>', {} )
