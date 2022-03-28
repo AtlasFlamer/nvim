@@ -3,6 +3,7 @@ local packer = require('packer')
 -- local util = require('packer.util') hmm not used?
 
 packer.startup(function()
+        use 'iamcco/markdown-preview.nvim'
 	use({
 		"aserowy/tmux.nvim",
 		config = function()
@@ -56,7 +57,7 @@ packer.startup(function()
 			'gitsigns.nvim',
 		}
 	}
-	use  'mangeshrex/uwu.vim'
+	use  'mangeshrex/everblush.vim'
 	use 'windwp/nvim-autopairs'
 	use {
 		'plasticboy/vim-markdown',
