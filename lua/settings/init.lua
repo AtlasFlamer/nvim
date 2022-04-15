@@ -36,7 +36,7 @@ vim.api.nvim_set_keymap('v', '<leader>P', '"+P_', {} )
 vim.api.nvim_set_keymap('n', '<leader>p', '"+p', {} )
 vim.api.nvim_set_keymap('n', '<leader>P', '"+P', {} )
 
--- Save 
+-- Save
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', {} )
 
 -- GPD :
