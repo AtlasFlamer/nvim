@@ -3,6 +3,7 @@ local packer = require('packer')
 -- local util = require('packer.util') hmm not used?
 
 packer.startup(function()
+        use 'rakr/vim-two-firewatch'
         use 'udalov/kotlin-vim'
         use 'iamcco/markdown-preview.nvim'
 	use({
