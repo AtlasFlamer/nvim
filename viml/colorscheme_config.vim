@@ -15,5 +15,6 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc 
 
-colorscheme everblush
-
+set background=dark
+colorscheme two-firewatch
+hi Normal guibg=NONE ctermbg=NONE
