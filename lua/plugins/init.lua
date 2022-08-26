@@ -1,10 +1,13 @@
 vim.cmd 'packadd packer.nvim'
+
 local packer = require('packer')
 -- local util = require('packer.util') hmm not used?
 
-packer.startup(function()
-        use 'udalov/kotlin-vim'
-        use 'iamcco/markdown-preview.nvim'
+packer.startup(function(use)
+
+        use("nathom/filetype.nvim")
+        use 'rakr/vim-two-firewatch'
+        use {'udalov/kotlin-vim', ft = {"kotlin"}}
 	use({
 		"aserowy/tmux.nvim",
 		config = function()
@@ -16,10 +19,6 @@ packer.startup(function()
 					-- sync registers *, +, unnamed, and 0 till 9 from tmux in advance
 					enable = true,
 				},
-				navigation = {
-					-- enables default keybindings (C-hjkl) for normal mode
-					enable_default_keybindings = true,
-				},
 				resize = {
 					-- enables default keybindings (A-hjkl) for normal mode
 					enable_default_keybindings = true,
@@ -27,39 +26,34 @@ packer.startup(function()
 			})
 		end
 	})
+
 	use {
 		'tikhomirov/vim-glsl',
 		opt = true,
 		ft = 'glsl'
 	}
-	use 'karb94/neoscroll.nvim'
-	use 'untitled-ai/jupyter_ascending.vim'
-	use 'soywod/iris.vim'
-	use {'wbthomason/packer.nvim'}
-	use {
-		'glacambre/firenvim',
-			run = function() vim.fn['firenvim#install'](0) end
+	use {'karb94/neoscroll.nvim'
+        }
 
-	}
+	use {'wbthomason/packer.nvim', opt = true}
+
+	use {'preservim/nerdtree', cmd = {"NERDTreeFocus"},
+            opt = true
+        }
+
+	use {'kyazdani42/nvim-web-devicons'}
+
+--	use 'ryanoasis/vim-devicons'
+
 	use {
-		'junegunn/fzf'
+		'famiu/feline.nvim', after  = {'nvim-web-devicons'}
 	}
-	use {
-		'junegunn/fzf.vim'
-	}
-	use {'kyazdani42/nvim-web-devicons', cond = nightly}
-	use 'lewis6991/gitsigns.nvim'
-	use 'ryanoasis/vim-devicons'
-	use 'preservim/nerdtree'
-	use {
-		'famiu/feline.nvim',
-		after = {
-			'nvim-web-devicons',
-			'gitsigns.nvim',
-		}
-	}
-	use  'mangeshrex/everblush.vim'
-	use 'windwp/nvim-autopairs'
+	use {'windwp/nvim-autopairs',
+                config = function()
+                    require('nvim-autopairs').setup{}
+                end
+                    }
+
 	use {
 		'plasticboy/vim-markdown',
 		ft = {'md', 'markdown'},
@@ -76,19 +70,39 @@ packer.startup(function()
 			vim.g.vim_markdown_toc_autofit = 1
 		end
 	}
-	use 'norcalli/nvim-colorizer.lua'
+
 	use {
 		'nvim-treesitter/nvim-treesitter',
-		run = ":TSUpdate"
+		run = ":TSUpdate",
+                config = function()
+                    require'nvim-treesitter.configs'.setup {
+                        highlight = {
+                            enable = true,
+                            disable = {},
+                        },
+                        indent = {
+                            enable = false,
+                            disable = {},
+                        }
+                    }
+                end
 	}
 
 	use {
 		'iamcco/markdown-preview.nvim',
 		run = "cd app && yarn install",
-		ft = {'md', 'markdown'}
+		ft = {'md', 'markdown'},
+                config = function()
+                    require('settings.markdown-preview')
+                end
 	}
 	use {
-		'neovim/nvim-lspconfig'
+		'neovim/nvim-lspconfig',
+                config = function()
+                    require'settings.lspconfig'
+                end,
+                alias = 'nvim-lspconfig'
+
 	}
 	use {
 		'hrsh7th/nvim-cmp'
@@ -96,5 +110,12 @@ packer.startup(function()
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'L3MON4D3/LuaSnip'
 	use 'saadparwaiz1/cmp_luasnip'
+        use 'rafamadriz/friendly-snippets'
+        use 'hrsh7th/cmp-buffer'
+        use 'hrsh7th/cmp-path'
+--        use 'https://git.sr.ht/~henriquehbr/nvim-startup.lua/'
+        use 'mfussenegger/nvim-jdtls'
+        use {'jubnzv/mdeval.nvim', ft = {"md", "markdown"}}
 end)
+
 
