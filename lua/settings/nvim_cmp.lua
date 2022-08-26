@@ -1,45 +1,48 @@
-local luasnip = require'luasnip'
-local cmp = require'cmp'
-cmp.setup{
-	snippet = {
-		expand = function(args)
-			require('luasnip').lsp_expand(args.body)
-		end,
-	},
-	mapping = {
-		['<C-p>'] = cmp.mapping.select_prev_item(),
-		['<C-n>'] = cmp.mapping.select_next_item(),
-		['<C-d>'] = cmp.mapping.scroll_docs(-4),
-		['<C-f>'] = cmp.mapping.scroll_docs(4),
-		['<C-Space>'] = cmp.mapping.complete(),
-		['<C-e>'] = cmp.mapping.close(),
-		['<Tab>'] = function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			else
-				fallback()
-			end
-    end,
-    ['<S-Tab>'] = function(fallback)
-		if cmp.visible() then
-			cmp.select_prev_item()
-      else
-        fallback()
-      end
-    end,
-  },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-  },
-}
-require("cmp").setup({
-  map_cr = true, --  map <CR> on insert mode
-  map_complete = true, -- it will auto insert `(` (map_char) after select function or method item
-  auto_select = true, -- automatically select the first item
-  insert = false, -- use insert confirm behavior instead of replace
-  map_char = { -- modifies the function or method delimiter by filetypes
-    all = '('
+local cmp = require('cmp')
+local select_opts = {behabior = cmp.SelectBehavior.Select}
 
-  }
+local maps = {
+    ["<Tab>"] = cmp.mapping(function(fallback)
+        local col = vim.fn.col('.') - 1
+        if cmp.visible() then
+            cmp.select_next_item(select_opts)
+        elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+            fallback()
+        else
+            cmp.complete()
+        end
+
+        end, {'i', 's'}),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+        local col = vim.fn.col('.') - 1
+        if cmp.visible() then
+            cmp.select_prev_item(select_opts)
+        elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+            fallback()
+        else
+            cmp.complete()
+        end
+
+        end, {'i', 's'}),
+
+         ['<CR>'] = cmp.mapping.confirm({select = true}),
+         ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
+         ['<Down>'] = cmp.mapping.select_next_item(select_opts),
+
+         ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
+         ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
+         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+         ['<C-f>'] = cmp.mapping.scroll_docs(4),
+}
+
+
+
+cmp.setup({
+    sources = {
+        {name = 'nvim_lsp'},
+        {name = "luasnip"},
+        {name = "buffer"},
+        {name = "path"}
+    },
+    mapping = maps
 })
