@@ -32,7 +32,10 @@ packer.startup(function(use)
 		opt = true,
 		ft = 'glsl'
 	}
-	use {'karb94/neoscroll.nvim'
+	use {'karb94/neoscroll.nvim', event = "CursorMoved",
+                config = function()
+                    require('neoscroll')
+                end
         }
 
 	use {'wbthomason/packer.nvim', opt = true}
@@ -46,7 +49,7 @@ packer.startup(function(use)
 --	use 'ryanoasis/vim-devicons'
 
 	use {
-		'famiu/feline.nvim', after  = {'nvim-web-devicons'}
+		'famiu/feline.nvim'
 	}
 	use {'windwp/nvim-autopairs',
                 config = function()
@@ -105,17 +108,43 @@ packer.startup(function(use)
 
 	}
 	use {
-		'hrsh7th/nvim-cmp'
+		'hrsh7th/nvim-cmp',
+                config = function()
+                    require('settings/nvim_cmp')
+                end
 	}
 	use 'hrsh7th/cmp-nvim-lsp'
-	use 'L3MON4D3/LuaSnip'
-	use 'saadparwaiz1/cmp_luasnip'
-        use 'rafamadriz/friendly-snippets'
-        use 'hrsh7th/cmp-buffer'
-        use 'hrsh7th/cmp-path'
+	use {'L3MON4D3/LuaSnip', requires = 'friendly-snippets',
+                event = "InsertEnter",
+                config = function()
+                    require('luasnip')
+                    require("luasnip.loaders.from_vscode").lazy_load()
+                end}
+	use {'saadparwaiz1/cmp_luasnip', after = "nvim-cmp"}
+        use {'rafamadriz/friendly-snippets', event = "InsertEnter", after = "cmp-buffer"}
+        use {'hrsh7th/cmp-buffer', after = {"cmp-nvim-lsp"}}
+        use {'hrsh7th/cmp-path', after = {"cmp-nvim-lsp"}}
 --        use 'https://git.sr.ht/~henriquehbr/nvim-startup.lua/'
-        use 'mfussenegger/nvim-jdtls'
-        use {'jubnzv/mdeval.nvim', ft = {"md", "markdown"}}
+        use {'mfussenegger/nvim-jdtls', ft = {"java"}}
+        use {'jubnzv/mdeval.nvim', ft = {"md", "markdown"},
+        config = function()
+            require'mdeval'.setup({
+                require_confirmation = false,
+                eval_options = {
+                    cpp = {
+                        command = {"g++", "-std=c++20", "-O0"},
+                        default_header = [[
+                        #include <iostream>
+                        #include <vector>
+                        ]],
+                    },
+                    python = {
+                        command = {"python"},
+                    }
+                }
+            });
+        end,
+    }
 end)
 
 
